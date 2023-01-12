@@ -34,12 +34,11 @@ span {
 
 .coockie-container {
   height: 400px;
-  
+
   filter: drop-shadow(30px 10px 4px black);
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
 
 img {
@@ -52,13 +51,14 @@ img {
 .hidden {
   visibility: hidden;
 }
-.space{
-    display: flex;
-    flex-direction: row;
-
+.space {
+  display: flex;
+  flex-direction: row;
 }
-button{
-    margin: 20px;
+button {
+  margin: 20px;
+  
+  
 }
 
 @keyframes rotate {

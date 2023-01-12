@@ -6,18 +6,20 @@ const updatescore = (cookies) => {
   title.innerHTML = cookies;
 };*/
 let clicks = 0;
-let doubleScore = 2;
+let doubleScore = 1;
+let newclick = 1;
 const hidden = document.querySelector(".hidden");
 function MuchCoockie() {
   clicks += 1;
+
   document.getElementById("score").innerHTML = clicks + " : Coockies";
   hidden.style.visibility = "hidden";
-  if (clicks % 10 == 0) {
+  document.getElementById("doublesc").disabled=false;
+  if (clicks % 20 == 0) {
     alert("click for doublescore !!");
     hidden.style.visibility = "visible";
-    clicks =  clicks ;
   }
-  
+
   if (clicks == 100) {
     hidden.style.visibility = "visible";
     alert("ourahhhhhhhhhhhhhhhhhhhhhhhhhhhhhh coockies explosion!!!!");
@@ -25,9 +27,11 @@ function MuchCoockie() {
   }
 }
 function DoubleScore() {
-  if (clicks % 10 == 0) {
-   doubleScore = clicks * 2;
-    document.getElementById("score").innerHTML = doubleScore+ " : Coockies";
-    
+  if (clicks % 20 == 0) {
+    doubleScore = clicks * 2;
+    clicks = doubleScore;
+
+    document.getElementById("score").innerHTML = doubleScore + " : Coockies";
+    document.getElementById("doublesc").disabled=true;
   }
 }
