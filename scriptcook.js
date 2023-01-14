@@ -10,26 +10,31 @@ let cptbonus = 35;
 let doubleScore = 1;
 let newclick = 1;
 let today = new Date();
-const hidden = document.querySelector(".hidden");
+const hiddenconfetie = document.querySelector(".hiddenconfetie");
 const Slot = document.querySelector(".slot");
-const Autoclick = document.querySelector(".Autoclick");
+const Autoclick = document.querySelector(".autoclick");
 const emojis = ["🍪", "🍪", "🍪", "🍪", "🍪", "🍪"];
+const coockie = document.activeElement(".coockie");
 
 function MuchCoockie() {
   clicks += 1;
   let Seconds = today.getMilliseconds();
   document.getElementById("score").innerHTML =
     clicks + " : Coockies<br/>" + Seconds + "  times games";
-  hidden.style.visibility = "hidden";
+  //hiddenconfetie.style.visibility = "hidden";
+  
+
   document.getElementById("doublesc").disabled = true;
   if (clicks % 25 == 0) {
-    alert("click for doublescore !!");
-    hidden.style.visibility = "visible";
+    alert("click for doublescore !! or wait for a big surprise 🤲");
+    //hiddenconfetie.style.visibility = "visible";//
     document.getElementById("doublesc").disabled = false;
+    coockie.addEventListener("click", Splashcoockie);
   }
-  if (clicks == 100) {
-    hidden.style.visibility = "visible";
+  if (clicks == 120) {
+   // hiddenconfetie.style.visibility = "visible";//
     Autoclick.Autoclicker();
+
     alert("ourahhhhhhhhhhhhhhhhhhhhhhhhhhhhhh coockies explosion!!!! ");
   }
 }
@@ -37,6 +42,7 @@ function Double() {
   if (clicks % 25 == 0 && cptbonus > 0) {
     alert("You ll make it for 35: ");
     doubleScore = clicks * 2;
+
     clicks = clicks - cptbonus;
     if (clicks < 0) {
       clicks = 0;
@@ -45,34 +51,22 @@ function Double() {
     document.getElementById("score").innerHTML =
       doubleScore + " : Coockies<br/>";
     document.getElementById("doublesc").disabled = true;
-  } else if (clicks == 100) {
-    document.getElementById("score").innerHTML =
-      clicks + " : Coockies soon FINITO !!!!";
-  } else {
-    clicks = 0;
-    document.getElementById("score").innerHTML =
-      clicks + " : Coockies shit f!!!!";
   }
 }
-function splashcoockie() {
+function Autoclicker() {
+  setInterval(function () {
+    Autoclick.click();
+  }, 100);
+}
+function Splashcoockie() {
   for (let i = 0; i < 20; i++) {
-    const confeticoockie =
-      document.createElement("div"); /*create element in div*/
-    confeticoockie.innerText =
-      emojis[
-        Math.floor(Math.random() * emojis.length)
-      ]; /*tirer un coockie au hazard et le x 20*/
-    Slot.appendChild(
-      confeticoockie
-    ); /*ajouter la variable emoji confeti aux enfants du div Slot*/
+    const confeti = document.createElement('div'); /*create element in div*/
+    confeti.innerText =
+      emojis[Math.floor(Math.random() * emojis.length)]; /*tirer un coockie au hazard et le x 20*/
+    Slot.appendChild(confeti); /*ajouter la variable emoji confeti aux enfants du div Slot*/
   }
 }
 
 function BonusHidden() {
-  hidden.style.backgroundColor = "green";
-}
-function Autoclicker() {
-  setInterval(() => {
-    Autoclick.click();
-  }, 100);
+  hiddenconfetie.style.backgroundColor = "green";
 }
