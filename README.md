@@ -1,2 +1,2 @@
-# coockie.clicker
-game coockie clicker 
+coockie.clicker.io
+
