@@ -22,19 +22,17 @@
 
 .score,
 span {
-  font-size: 4rem;
+  font-size: 2rem;
   font-weight: bolder;
   text-shadow: 5px 6px 7px black;
   text-align: center;
   width: 100%;
   color: white;
   background-color: firebrick;
-  height: 20%;
+  height: 20vh;
 }
 
 .coockie-container {
-  height: 400px;
-
   filter: drop-shadow(30px 10px 4px black);
   display: flex;
   justify-content: center;
@@ -43,22 +41,39 @@ span {
 
 img {
   width: 60%;
+
   cursor: pointer;
   animation: rotate 20s linear infinite;
   justify-content: center;
   align-items: center;
+  z-index: -2;
 }
-#hidden {
+.hidden {
   visibility: hidden;
+}
+.hidden:active {
+  margin-top: 7px;
+  box-shadow: 12px 5px 2px gray;
 }
 .space {
   display: flex;
   flex-direction: row;
 }
+.slot {
+  position: relative;
+  perspective: 1000px;
+}
+.slot div {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
 button {
   margin: 20px;
-  
-  
 }
 
 @keyframes rotate {
