@@ -32,7 +32,9 @@ span {
   background-color: firebrick;
   height: 30%;
   overflow: hidden;
-  margin-top: -20px;
+  margin-top: -10px;
+  justify-content: center;
+  align-items: center;
 }
 
 .coockie-container {
@@ -53,12 +55,13 @@ img {
 }
 .ct {
   position: absolute;
-  top: 15%;
-  right: 70px;
+  top: 8%;
+  right: 80px;
   left: 50px;
   
   width: 210px;
   height: 200px;
+  cursor: pointer;
 
   transform: translate(50%, 50%);
   margin: 0 auto;
@@ -67,18 +70,22 @@ img {
   position: relative;
   perspective: 1000px;
 
+
 }
 .slot div {
-  width: 30px;
-  height: 30px;
-  position: absolute;
+  width: 20%;
+  position: relative;
   border-radius: 50%;
-  top: 40%;
-  left: 40%;
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
+ 
 }
 .hiddenconfetie {
-  
+  border-radius: 50%;
+  cursor: pointer;
+  width: 150px;
+  height: 150px;
 
   position: absolute;
   top: 50%;
@@ -93,9 +100,12 @@ img {
 .space {
   display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: center;
   height: 15%;
   position: relative;
   top: -70px;
+  width: 90%;
 }
 h3 {
   text-shadow: 2px 4px 8px gray;
@@ -105,6 +115,7 @@ button {
   margin: 20px;
   height: 60px;
   width: 250px;
+  text-align: center;
 }
 
 @keyframes rotate {

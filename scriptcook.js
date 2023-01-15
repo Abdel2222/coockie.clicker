@@ -11,29 +11,30 @@ let doubleScore = 1;
 let newclick = 1;
 let today = new Date();
 const hiddenconfetie = document.querySelector(".hiddenconfetie");
-const Slot = document.querySelector(".slot");
+const Spt = document.querySelector(".slot");
 const Autoclick = document.querySelector(".autoclick");
 const emojis = ["🍪", "🍪", "🍪", "🍪", "🍪", "🍪"];
-const coockie = document.activeElement(".coockie");
+const coockie = document.querySelector(".coockie");
 
 function MuchCoockie() {
   clicks += 1;
   let Seconds = today.getMilliseconds();
   document.getElementById("score").innerHTML =
     clicks + " : Coockies<br/>" + Seconds + "  times games";
-  //hiddenconfetie.style.visibility = "hidden";
+    document.getElementById("doublesc").disabled = false;
+  //hiddenconfetie.style.visibility = "hidden";//
   
 
   document.getElementById("doublesc").disabled = true;
   if (clicks % 25 == 0) {
     alert("click for doublescore !! or wait for a big surprise 🤲");
-    //hiddenconfetie.style.visibility = "visible";//
+    hiddenconfetie.style.visibility = "visible";
     document.getElementById("doublesc").disabled = false;
-    coockie.addEventListener("click", Splashcoockie);
+    
   }
-  if (clicks == 120) {
-   // hiddenconfetie.style.visibility = "visible";//
-    Autoclick.Autoclicker();
+  if (clicks == 150) {
+     hiddenconfetie.style.visibility = "visible";
+    Autoclicker();
 
     alert("ourahhhhhhhhhhhhhhhhhhhhhhhhhhhhhh coockies explosion!!!! ");
   }
@@ -42,6 +43,8 @@ function Double() {
   if (clicks % 25 == 0 && cptbonus > 0) {
     alert("You ll make it for 35: ");
     doubleScore = clicks * 2;
+    Autoclicker();
+  }
 
     clicks = clicks - cptbonus;
     if (clicks < 0) {
@@ -52,21 +55,59 @@ function Double() {
       doubleScore + " : Coockies<br/>";
     document.getElementById("doublesc").disabled = true;
   }
-}
+
 function Autoclicker() {
   setInterval(function () {
     Autoclick.click();
   }, 100);
 }
+
 function Splashcoockie() {
-  for (let i = 0; i < 20; i++) {
-    const confeti = document.createElement('div'); /*create element in div*/
+  for (let i = 0; i < 50; i++) {
+    const confeti = document.createElement("div"); /*create element in div*/
     confeti.innerText =
-      emojis[Math.floor(Math.random() * emojis.length)]; /*tirer un coockie au hazard et le x 20*/
-    Slot.appendChild(confeti); /*ajouter la variable emoji confeti aux enfants du div Slot*/
+      emojis[
+        Math.floor(Math.random() * emojis.length)
+      ]; /*tirer un coockie au hazard et le x 20*/
+    Spt.appendChild(
+      confeti
+    ); /*ajouter la variable emoji confeti aux enfants du div Slot*/
   }
 }
+/*function animateconfetticoochies() {
+  const TIMELINECONF = gsap.timeline();
+  TIMELINECONF.to(".slot div", {
+    y: "random(-100,100)",
+    x: "random(-100,100)",
+    z: "random(0,1000)",
+    
+  });
+}*/
 
 function BonusHidden() {
-  hiddenconfetie.style.backgroundColor = "green";
+  for (let i = 0; i < 50; i++) {
+    const confeti = document.createElement("div"); /*create element in div*/
+    confeti.innerText =
+      emojis[
+        Math.floor(Math.random() * emojis.length)
+      ]; /*tirer un coockie au hazard et le x 20*/
+    Spt.appendChild(
+      confeti
+    ); /*ajouter la variable emoji confeti aux enfants du div Slot*/
+  }
+  
+animateConfetticoochies();
 }
+function animateConfetticoochies() {
+  const TCONF = gsap.timeline();
+  TCONF
+  .to(".slot div ", {
+    y: "random(-100,100)",
+    x: "random(-100,100)",
+    z: "random(0,1000)",
+    rotation:"random(-90,90)",
+    duration:2
+  });
+  
+}
+
