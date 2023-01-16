@@ -18,7 +18,7 @@
   flex-direction: column;
   gap: 80px;
   padding: 20px;
-  
+  background: url("reve.gif") center/cover ;
 }
 
 .score,
@@ -35,6 +35,8 @@ span {
   margin-top: -10px;
   justify-content: center;
   align-items: center;
+  background: url("c2.jpeg") center/cover;
+ 
 }
 
 .coockie-container {
@@ -58,7 +60,7 @@ img {
   top: 8%;
   right: 80px;
   left: 50px;
-  
+
   width: 210px;
   height: 200px;
   cursor: pointer;
@@ -69,8 +71,6 @@ img {
 .slot {
   position: relative;
   perspective: 1000px;
-
-
 }
 .slot div {
   width: 20%;
@@ -79,7 +79,6 @@ img {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
- 
 }
 .hiddenconfetie {
   border-radius: 50%;

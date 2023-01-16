@@ -9,6 +9,7 @@ let clicks = 0;
 let cptbonus = 35;
 let doubleScore = 1;
 let newclick = 1;
+let bonuseconde = 0;
 let today = new Date();
 const hiddenconfetie = document.querySelector(".hiddenconfetie");
 const Spt = document.querySelector(".slot");
@@ -28,8 +29,13 @@ function MuchCoockie() {
   if (clicks % 25 == 0) {
     alert("click for doublescore !! or wait for a big surprise 🤲");
     hiddenconfetie.style.visibility = "visible";
-    Autoclicker();
+
     document.getElementById("doublesc").disabled = false;
+  }
+  bonuseconde++;
+
+  if (bonuseconde % 10 == 0) {
+    clicks += 10;
   }
   if (clicks == 150) {
     hiddenconfetie.style.visibility = "visible";
@@ -40,8 +46,9 @@ function MuchCoockie() {
 function Double() {
   if (clicks % 25 == 0 && cptbonus > 0) {
     alert("You ll make it for 35: ");
+
     doubleScore = clicks * 2;
-    Autoclicker();
+    document.getElementById("doublesc").innerHTML = "X" + " 💪 " + cptbonus;
   }
 
   clicks = clicks - cptbonus;
@@ -51,12 +58,6 @@ function Double() {
   cptbonus--;
   document.getElementById("score").innerHTML = doubleScore + " : Coockies<br/>";
   document.getElementById("doublesc").disabled = true;
-}
-
-function Autoclicker() {
-  setInterval(function () {
-    Autoclick.click();
-  }, 100);
 }
 
 function Splashcoockie() {
