@@ -21,7 +21,7 @@ function MuchCoockie() {
   clicks += 1;
   let Seconds = today.getMilliseconds();
   document.getElementById("score").innerHTML =
-    clicks + " : Coockies<br/>" + Seconds + "  times games";
+    clicks + " : Coockies<br/>" + '00:00:00' + "  times games";
   document.getElementById("doublesc").disabled = false;
   hiddenconfetie.style.visibility = "hidden";
 
