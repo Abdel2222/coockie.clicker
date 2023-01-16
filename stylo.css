@@ -3,7 +3,7 @@
   padding: 0;
   box-sizing: border-box;
   font-size: 1.2rem;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
   overflow: hidden;
   outline: 0;
   user-select: none;
@@ -18,7 +18,8 @@
   flex-direction: column;
   gap: 80px;
   padding: 20px;
-  background: url("reve.gif") center/cover ;
+  background: url("reve.gif") center/cover;
+ 
 }
 
 .score,
@@ -36,7 +37,7 @@ span {
   justify-content: center;
   align-items: center;
   background: url("c2.jpeg") center/cover;
- 
+  text-shadow: 5px 6px 18px black;
 }
 
 .coockie-container {
