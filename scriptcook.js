@@ -33,7 +33,6 @@ function MuchCoockie() {
   }
   if (clicks == 150) {
     hiddenconfetie.style.visibility = "visible";
-    
 
     alert("ourahhhhhhhhhhhhhhhhhhhhhhhhhhhhhh coockies explosion!!!! ");
   }
