@@ -101,8 +101,9 @@ function animateConfetticoochies() {
     x: "random(-100,100)",
     z: "random(0,1000)",
     rotation: "random(-90,90)",
-    duration: 2,
-  });
+    duration: 3,
+  })
+  .to('.slot div',{autoAlpha: 0,duration:0.3},'=0.2');
 }
 function Reset() {
   clicks = 0;
@@ -111,4 +112,5 @@ function Reset() {
   document.getElementById("reset").disabled = false;
   bonuseconde = 0;
   hiddenconfetie.style.visibility = "visible";
+  hiddenconfetie.innerHTML = "Bonus 200%" + " 😥" + bonuseconde;
 }
