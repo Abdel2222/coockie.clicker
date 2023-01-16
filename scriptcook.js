@@ -16,6 +16,7 @@ const Spt = document.querySelector(".slot");
 const Autoclick = document.querySelector(".autoclick");
 const emojis = ["🍪", "🍪", "🍪", "🍪", "🍪", "🍪"];
 const coockie = document.querySelector(".coockie");
+const score =document.querySelector(".score");
 
 function MuchCoockie() {
   clicks += 1;
@@ -23,6 +24,7 @@ function MuchCoockie() {
   document.getElementById("score").innerHTML =
     clicks + " : Coockies<br/>" + '00:00:00' + "  times games";
   document.getElementById("doublesc").disabled = false;
+  document.getElementById("reset").disabled = true;
   hiddenconfetie.style.visibility = "hidden";
 
   document.getElementById("doublesc").disabled = true;
@@ -34,8 +36,11 @@ function MuchCoockie() {
   }
   bonuseconde++;
 
-  if (bonuseconde % 10 == 0) {
-    clicks += 10;
+  if (bonuseconde > 150) {
+  Reset();
+  score.style.backgroundImage="url('the-end.gif')";
+  score.style.visibility="visible";
+  
   }
   if (clicks == 150) {
     hiddenconfetie.style.visibility = "visible";
@@ -96,4 +101,11 @@ function animateConfetticoochies() {
     rotation: "random(-90,90)",
     duration: 2,
   });
+}
+function Reset(){
+  clicks=0;
+  document.getElementById("score").innerHTML =
+  clicks + " : Coockies<br/>" + 'READY:🎮' ;
+  document.getElementById("reset").disabled = false;
+
 }
