@@ -21,20 +21,19 @@ function MuchCoockie() {
   let Seconds = today.getMilliseconds();
   document.getElementById("score").innerHTML =
     clicks + " : Coockies<br/>" + Seconds + "  times games";
-    document.getElementById("doublesc").disabled = false;
-  //hiddenconfetie.style.visibility = "hidden";//
-  
+  document.getElementById("doublesc").disabled = false;
+  hiddenconfetie.style.visibility = "hidden";
 
   document.getElementById("doublesc").disabled = true;
   if (clicks % 25 == 0) {
     alert("click for doublescore !! or wait for a big surprise 🤲");
     hiddenconfetie.style.visibility = "visible";
+    Autoclicker();
     document.getElementById("doublesc").disabled = false;
-    
   }
   if (clicks == 150) {
-     hiddenconfetie.style.visibility = "visible";
-    Autoclicker();
+    hiddenconfetie.style.visibility = "visible";
+    
 
     alert("ourahhhhhhhhhhhhhhhhhhhhhhhhhhhhhh coockies explosion!!!! ");
   }
@@ -46,15 +45,14 @@ function Double() {
     Autoclicker();
   }
 
-    clicks = clicks - cptbonus;
-    if (clicks < 0) {
-      clicks = 0;
-    }
-    cptbonus--;
-    document.getElementById("score").innerHTML =
-      doubleScore + " : Coockies<br/>";
-    document.getElementById("doublesc").disabled = true;
+  clicks = clicks - cptbonus;
+  if (clicks < 0) {
+    clicks = 0;
   }
+  cptbonus--;
+  document.getElementById("score").innerHTML = doubleScore + " : Coockies<br/>";
+  document.getElementById("doublesc").disabled = true;
+}
 
 function Autoclicker() {
   setInterval(function () {
@@ -74,15 +72,6 @@ function Splashcoockie() {
     ); /*ajouter la variable emoji confeti aux enfants du div Slot*/
   }
 }
-/*function animateconfetticoochies() {
-  const TIMELINECONF = gsap.timeline();
-  TIMELINECONF.to(".slot div", {
-    y: "random(-100,100)",
-    x: "random(-100,100)",
-    z: "random(0,1000)",
-    
-  });
-}*/
 
 function BonusHidden() {
   for (let i = 0; i < 50; i++) {
@@ -95,19 +84,16 @@ function BonusHidden() {
       confeti
     ); /*ajouter la variable emoji confeti aux enfants du div Slot*/
   }
-  
-animateConfetticoochies();
+
+  animateConfetticoochies();
 }
 function animateConfetticoochies() {
   const TCONF = gsap.timeline();
-  TCONF
-  .to(".slot div ", {
+  TCONF.to(".slot div ", {
     y: "random(-100,100)",
     x: "random(-100,100)",
     z: "random(0,1000)",
-    rotation:"random(-90,90)",
-    duration:2
+    rotation: "random(-90,90)",
+    duration: 2,
   });
-  
 }
-
