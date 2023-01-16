@@ -25,6 +25,12 @@ h1{
 #reset{
   visibility: hidden;
 }
+#reset:hover{
+  background: url("https://media.giphy.com/media/tvtrYrzZN1ZmBfT8Nl/giphy.gif");
+}
+#doublesc:hover{
+  background: url("https://media.giphy.com/media/r4ra9D1nwoF4VilUkZ/giphy.gif");
+}
 
 .score,
 span {
@@ -60,6 +66,11 @@ img {
   justify-content: center;
   align-items: center;
 }
+.hiddenconfetie:hover{
+  background: url("aigle.gif");
+
+}
+
 .ct {
   position: absolute;
   top: 8%;
