@@ -10,20 +10,29 @@ let cptbonus = 35;
 let doubleScore = 1;
 let newclick = 1;
 let bonuseconde = 0;
-let today = new Date();
+let minute = 0;
+let seconde = 0;
+let hour = 0;
+let timeout;
+let start = true;
+let end = true;
+let stp = true;
 const hiddenconfetie = document.querySelector(".hiddenconfetie");
 const Spt = document.querySelector(".slot");
-const Autoclick = document.querySelector(".autoclick");
+const Autoclick = document.getElementById("autoclick");
 const emojis = ["🍪", "🍪", "🍪", "🍪", "🍪", "🍪"];
 const coockie = document.querySelector(".coockie");
 const score = document.querySelector(".score");
 const reset = document.getElementById("reset");
 let Cptend = 0;
 function MuchCoockie() {
-  clicks += 1;
-  let Seconds = today.getMilliseconds();
+ if(clicks += 1) {
+  startime();
+ }
+
   document.getElementById("score").innerHTML =
     clicks + " : Coockies<br/>" + "00:00:00";
+
   score.style.backgroundImage = "url('c2.jpeg')";
   document.getElementById("doublesc").disabled = false;
   reset.style.visibility = "hidden";
@@ -39,13 +48,14 @@ function MuchCoockie() {
   }
   bonuseconde++;
 
-  if (bonuseconde > 50) {
+  if (bonuseconde > 20) {
     score.style.backgroundImage = "url('the-end.gif')";
     reset.style.visibility = "visible";
 
     alert("game overrrrrrrrrrrrrrrrrrr ! presse reset to start!");
 
     Cptend++;
+    endtime();
   }
 }
 function Double() {
@@ -64,6 +74,7 @@ function Double() {
   cptbonus--;
   document.getElementById("score").innerHTML = doubleScore + " : Coockies<br/>";
   document.getElementById("doublesc").disabled = true;
+ 
 }
 
 function Splashcoockie() {
@@ -102,8 +113,7 @@ function animateConfetticoochies() {
     z: "random(0,1000)",
     rotation: "random(-90,90)",
     duration: 3,
-  })
-  .to('.slot div',{autoAlpha: 0,duration:0.3},'=0.2');
+  }).to(".slot div", { autoAlpha: 0, duration: 0.3 }, "=0.2");
 }
 function Reset() {
   clicks = 0;
@@ -113,4 +123,53 @@ function Reset() {
   bonuseconde = 0;
   hiddenconfetie.style.visibility = "visible";
   hiddenconfetie.innerHTML = "Bonus 200%" + " 😥" + bonuseconde;
+  endtime();
 }
+function startime() {
+  if (end) {
+    end = false;
+    defilerTemps();
+  }
+}
+function endtime() {
+  if (!end) {
+    end: true;
+    clearTimeout(timeout);
+  }
+}
+function defilerTemps() {
+  if (end) 
+    return;
+  
+  seconde = parseInt(seconde);
+  minute = parseInt(minute);
+  hour = parseInt(hour);
+  seconde++;
+  if (seconde == 60) {
+    minute++;
+    seconde = 0;
+  }
+  if (minute == 60) {
+    hour++;
+    minute = 0;
+  }
+  if (seconde < 10) {
+    seconde = "0" + seconde;
+  }
+  if (seconde == 14) {
+    alert("mega promo");
+    clicks*4;
+  }
+  
+  
+  if (minute < 10) {
+    minute = "0" + minute;
+  }
+  if (hour < 10) {
+    hour = "0" + hour;
+  }
+  document.getElementById("score").innerHTML =
+    clicks + " : Coockies<br/>" + hour + " : " + minute + " : " + seconde;
+  timeout = setTimeout(defilerTemps, 600);
+}
+

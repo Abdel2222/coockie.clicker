@@ -26,10 +26,10 @@ h1{
   visibility: hidden;
 }
 #reset:hover{
-  background: url("https://media.giphy.com/media/tvtrYrzZN1ZmBfT8Nl/giphy.gif");
+  background: url("https://media.giphy.com/media/tvtrYrzZN1ZmBfT8Nl/giphy.gif") center/cover;
 }
 #doublesc:hover{
-  background: url("https://media.giphy.com/media/r4ra9D1nwoF4VilUkZ/giphy.gif");
+  background: url("https://media.giphy.com/media/r4ra9D1nwoF4VilUkZ/giphy.gif") center/cover;
 }
 
 .score,
@@ -67,7 +67,7 @@ img {
   align-items: center;
 }
 .hiddenconfetie:hover{
-  background: url("aigle.gif");
+  background: url("aigle.gif")center/cover;
 
 }
 
@@ -132,6 +132,10 @@ button {
   height: 60px;
   width: 250px;
   text-align: center;
+}
+#autoclick{
+  color: red;
+  background: url("https://media.giphy.com/media/26tPeyjg3ucTueKnC/giphy.gif") center/cover;
 }
 
 @keyframes rotate {
