@@ -22,8 +22,8 @@ h1{
   background: url("reve.gif") center/cover;
  
 }
-.reset{
-  visibility: ;
+#reset{
+  visibility: hidden;
 }
 
 .score,

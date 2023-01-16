@@ -16,41 +16,42 @@ const Spt = document.querySelector(".slot");
 const Autoclick = document.querySelector(".autoclick");
 const emojis = ["🍪", "🍪", "🍪", "🍪", "🍪", "🍪"];
 const coockie = document.querySelector(".coockie");
-const score =document.querySelector(".score");
-
+const score = document.querySelector(".score");
+const reset = document.getElementById("reset");
+let Cptend = 0;
 function MuchCoockie() {
   clicks += 1;
   let Seconds = today.getMilliseconds();
   document.getElementById("score").innerHTML =
-    clicks + " : Coockies<br/>" + '00:00:00' + "  times games";
+    clicks + " : Coockies<br/>" + "00:00:00";
+  score.style.backgroundImage = "url('c2.jpeg')";
   document.getElementById("doublesc").disabled = false;
-  document.getElementById("reset").disabled = true;
+  reset.style.visibility = "hidden";
   hiddenconfetie.style.visibility = "hidden";
 
   document.getElementById("doublesc").disabled = true;
-  if (clicks % 25 == 0) {
+  if (clicks % 15 == 0) {
     alert("click for doublescore !! or wait for a big surprise 🤲");
     hiddenconfetie.style.visibility = "visible";
+    bonuseconde + 10;
 
     document.getElementById("doublesc").disabled = false;
   }
   bonuseconde++;
 
-  if (bonuseconde > 150) {
-  Reset();
-  score.style.backgroundImage="url('the-end.gif')";
-  score.style.visibility="visible";
-  
-  }
-  if (clicks == 150) {
-    hiddenconfetie.style.visibility = "visible";
+  if (bonuseconde > 50) {
+    score.style.backgroundImage = "url('the-end.gif')";
+    reset.style.visibility = "visible";
 
-    alert("ourahhhhhhhhhhhhhhhhhhhhhhhhhhhhhh coockies explosion!!!! ");
+    alert("game overrrrrrrrrrrrrrrrrrr ! presse reset to start!");
+
+    Cptend++;
   }
 }
 function Double() {
-  if (clicks % 25 == 0 && cptbonus > 0) {
+  if (clicks % 15 == 0 && cptbonus > 0) {
     alert("You ll make it for 35: ");
+    hiddenconfetie.style.visibility = "visible";
 
     doubleScore = clicks * 2;
     document.getElementById("doublesc").innerHTML = "X" + " 💪 " + cptbonus;
@@ -88,6 +89,7 @@ function BonusHidden() {
     Spt.appendChild(
       confeti
     ); /*ajouter la variable emoji confeti aux enfants du div Slot*/
+    hiddenconfetie.innerHTML = "Bonus 200%" + " 🎊 " + bonuseconde;
   }
 
   animateConfetticoochies();
@@ -102,10 +104,11 @@ function animateConfetticoochies() {
     duration: 2,
   });
 }
-function Reset(){
-  clicks=0;
+function Reset() {
+  clicks = 0;
   document.getElementById("score").innerHTML =
-  clicks + " : Coockies<br/>" + 'READY:🎮' ;
+    clicks + " : Coockies<br/>" + "READY:🎮";
   document.getElementById("reset").disabled = false;
-
+  bonuseconde = 0;
+  hiddenconfetie.style.visibility = "visible";
 }
