@@ -1,10 +1,3 @@
-/*const cookie = document.getElementById(cookie); //recuperer l element  dans l image cookie//
-const updatescore = (cookies) => {
-  const title = document.querySelector("title");
-  const score = document.querySelector("#score span");
-  score.innerText = cookies;
-  title.innerHTML = cookies;
-};*/
 let clicks = 0;
 let cptbonus = 35;
 let doubleScore = 1;
@@ -26,33 +19,38 @@ const score = document.querySelector(".score");
 const reset = document.getElementById("reset");
 let Cptend = 0;
 function MuchCoockie() {
- if(clicks += 1) {
+  clicks += 1;
   startime();
- }
 
-  document.getElementById("score").innerHTML =
-    clicks + " : Coockies<br/>" + "00:00:00";
+  document.getElementById("doublesc").innerHTML = "X" + " 💪 " ;
 
   score.style.backgroundImage = "url('c2.jpeg')";
   document.getElementById("doublesc").disabled = false;
   reset.style.visibility = "hidden";
   hiddenconfetie.style.visibility = "hidden";
-
+  document.querySelector(".notif").style.visibility = "hidden";
+  Autoclick.disabled= false;
   document.getElementById("doublesc").disabled = true;
+
   if (clicks % 15 == 0) {
-    alert("click for doublescore !! or wait for a big surprise 🤲");
+    
     hiddenconfetie.style.visibility = "visible";
-    bonuseconde + 10;
+    bonuseconde + 3;
+    document.querySelector(".notif").visibility="visible";
 
     document.getElementById("doublesc").disabled = false;
   }
   bonuseconde++;
 
-  if (bonuseconde > 20) {
+  if (bonuseconde > 35) {
+  
     score.style.backgroundImage = "url('the-end.gif')";
     reset.style.visibility = "visible";
 
-    alert("game overrrrrrrrrrrrrrrrrrr ! presse reset to start!");
+    alert("bonus seconde > 20 👎 !"+  
+    "reset to start!"
+   +" 🎬  RREFFRESHHHH");
+ 
 
     Cptend++;
     endtime();
@@ -61,10 +59,13 @@ function MuchCoockie() {
 function Double() {
   if (clicks % 15 == 0 && cptbonus > 0) {
     alert("You ll make it for 35: ");
-    hiddenconfetie.style.visibility = "visible";
+    ;
+    document.querySelector(".notif ").style.visibility="visible";
+    hiddenconfetie.style.visibility = "visible"
 
     doubleScore = clicks * 2;
-    document.getElementById("doublesc").innerHTML = "X" + " 💪 " + cptbonus;
+    document.getElementById("doublesc").innerHTML = "X" + " 💪 " + bonuseconde ;
+    
   }
 
   clicks = clicks - cptbonus;
@@ -74,7 +75,6 @@ function Double() {
   cptbonus--;
   document.getElementById("score").innerHTML = doubleScore + " : Coockies<br/>";
   document.getElementById("doublesc").disabled = true;
- 
 }
 
 function Splashcoockie() {
@@ -138,9 +138,8 @@ function endtime() {
   }
 }
 function defilerTemps() {
-  if (end) 
-    return;
-  
+  if (end) return;
+
   seconde = parseInt(seconde);
   minute = parseInt(minute);
   hour = parseInt(hour);
@@ -156,12 +155,15 @@ function defilerTemps() {
   if (seconde < 10) {
     seconde = "0" + seconde;
   }
-  if (seconde == 14) {
-    alert("mega promo");
-    clicks*4;
+  if ( seconde >15 && seconde< 20 ) {
+    bonuseconde-3;
+    clicks * 4;
+    Autoclick.innerHTML=" BONUS*4 = "+ "(" +bonuseconde +")";
+   
+    document.querySelector(".notif").style.visibility = "visible"
+    document.querySelector(".notif").innerHTML=" 5 SECONDES AUTOCLICKER";
   }
-  
-  
+
   if (minute < 10) {
     minute = "0" + minute;
   }
@@ -172,4 +174,3 @@ function defilerTemps() {
     clicks + " : Coockies<br/>" + hour + " : " + minute + " : " + seconde;
   timeout = setTimeout(defilerTemps, 600);
 }
-
