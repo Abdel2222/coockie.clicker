@@ -24,6 +24,13 @@ h1 {
   gap: 80px;
   padding: 20px;
   overflow: hidden;
+  text-align: center;
+  
+}
+.score{
+  
+  justify-content: center;
+  align-content: center;
 }
 #reset {
   visibility: hidden;

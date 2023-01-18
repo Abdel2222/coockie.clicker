@@ -155,13 +155,19 @@ function defilerTemps() {
   if (seconde < 10) {
     seconde = "0" + seconde;
   }
-  if ( seconde >15 && seconde< 20 ) {
+  if ( seconde >15 && seconde< 25 ) {
     bonuseconde-3;
     clicks * 4;
     Autoclick.innerHTML=" BONUS*4 = "+ "(" +bonuseconde +")";
    
-    document.querySelector(".notif").style.visibility = "visible"
-    document.querySelector(".notif").innerHTML=" 5 SECONDES AUTOCLICKER";
+    document.querySelector(".notif").style.visibility = "visible";
+    document.querySelector(".notif").innerHTML=" 10 SECONDES AUTOCLICKER";
+    document.querySelector(".notif").style.fontSize="1.2rem";
+    
+  }
+  else {
+    document.querySelector(".notif").style.visibility = "hidden";
+
   }
 
   if (minute < 10) {
