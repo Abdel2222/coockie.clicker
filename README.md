@@ -7,7 +7,10 @@ LIVE: https://abdel2222.github.io/coockie.clicker/coockie.html<br/>
 
 
 DESCRIPTION:<br/>
-HTML,CSS;JAVASCRIPT( function settimeout, disbled 3 bouttons, hidden active en cliquant,variables compteurs incrementer avec les credits ,timers)<br/>
+HTML,CSS;JAVASCRIPT( function settimeout,<br/> disabled 3 bouttons,<br/> hidden  boutton et notifications active en cliquant <br/>
+,variables compteurs incrementer avec les credits<br/>
+,timers<br/>
+if conditon =maths, equations, random)<br/>
 APERCU:
 ![Cook](https://user-images.githubusercontent.com/90182304/213151900-0fa4174a-da47-4034-8881-710de9fae710.png)
 
