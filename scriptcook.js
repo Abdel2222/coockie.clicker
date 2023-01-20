@@ -17,64 +17,51 @@ const emojis = ["🍪", "🍪", "🍪", "🍪", "🍪", "🍪"];
 const coockie = document.querySelector(".coockie");
 const score = document.querySelector(".score");
 const reset = document.getElementById("reset");
-let Cptend = 0;
+let Cptend = 2;
 function MuchCoockie() {
   clicks += 1;
-  startime();
 
-  document.getElementById("doublesc").innerHTML = "X" + " 💪 " ;
+  startime();
+  bonuseconde = 1;
+
+  document.getElementById("doublesc").innerHTML = "X" + Cptend+" 💪 ";
 
   score.style.backgroundImage = "url('c2.jpeg')";
-  document.getElementById("doublesc").disabled = false;
-  reset.style.visibility = "hidden";
-  hiddenconfetie.style.visibility = "hidden";
-  document.querySelector(".notif").style.visibility = "hidden";
-  Autoclick.disabled= false;
   document.getElementById("doublesc").disabled = true;
 
-  if (clicks % 15 == 0) {
-    
+  hiddenconfetie.style.visibility = "visible";
+  hiddenconfetie.disabled = true;
+  document.querySelector(".notif").style.visibility = "hidden";
+  Autoclick.disabled = false;
+
+  if (clicks % 35 == 0) {
+    Double();
+
     hiddenconfetie.style.visibility = "visible";
-    bonuseconde + 3;
-    document.querySelector(".notif").visibility="visible";
-
-    document.getElementById("doublesc").disabled = false;
-  }
-  bonuseconde++;
-
-  if (bonuseconde > 35) {
-  
-    score.style.backgroundImage = "url('the-end.gif')";
-    reset.style.visibility = "visible";
-
-    alert("bonus seconde > 20 👎 !"+  
-    "reset to start!"
-   +" 🎬  RREFFRESHHHH");
- 
-
-    Cptend++;
-    endtime();
+    if (clicks < 0) {
+      clicks = 0;
+    }
   }
 }
 function Double() {
-  if (clicks % 15 == 0 && cptbonus > 0) {
-    alert("You ll make it for 35: ");
-    ;
-    document.querySelector(".notif ").style.visibility="visible";
-    hiddenconfetie.style.visibility = "visible"
+  if (clicks % 35 == 0 && Cptend > 0) {
+    Cptend = Cptend * 2;
+    clicks = clicks - Cptend;
+    document.getElementById("doublesc").disabled = false;
 
-    doubleScore = clicks * 2;
-    document.getElementById("doublesc").innerHTML = "X" + " 💪 " + bonuseconde ;
-    
+    document.getElementById("doublesc").innerHTML =
+      +Cptend + "for X 2 ";
+
+    hiddenconfetie.style.visibility = "visible";
+    hiddenconfetie.disabled = true;
+
+    clicks = clicks * 2;
   }
 
-  clicks = clicks - cptbonus;
   if (clicks < 0) {
     clicks = 0;
   }
   cptbonus--;
-  document.getElementById("score").innerHTML = doubleScore + " : Coockies<br/>";
-  document.getElementById("doublesc").disabled = true;
 }
 
 function Splashcoockie() {
@@ -100,7 +87,9 @@ function BonusHidden() {
     Spt.appendChild(
       confeti
     ); /*ajouter la variable emoji confeti aux enfants du div Slot*/
-    hiddenconfetie.innerHTML = "Bonus 200%" + " 🎊 " + bonuseconde;
+    hiddenconfetie.innerHTML = "Bonus 200%" + " 🎊  COCKIES X 5  ";
+    hiddenconfetie.disabled = false;
+    
   }
 
   animateConfetticoochies();
@@ -116,14 +105,15 @@ function animateConfetticoochies() {
   }).to(".slot div", { autoAlpha: 0, duration: 0.3 }, "=0.2");
 }
 function Reset() {
+  score.style.backgroundImage = "url('the-end.gif')";
   clicks = 0;
   document.getElementById("score").innerHTML =
     clicks + " : Coockies<br/>" + "READY:🎮";
-  document.getElementById("reset").disabled = false;
   bonuseconde = 0;
-  hiddenconfetie.style.visibility = "visible";
+
   hiddenconfetie.innerHTML = "Bonus 200%" + " 😥" + bonuseconde;
   endtime();
+  end = true;
 }
 function startime() {
   if (end) {
@@ -155,19 +145,30 @@ function defilerTemps() {
   if (seconde < 10) {
     seconde = "0" + seconde;
   }
-  if ( seconde >15 && seconde< 25 ) {
-    bonuseconde-3;
-    clicks * 4;
-    Autoclick.innerHTML=" BONUS*4 = "+ "(" +bonuseconde +")";
-   
-    document.querySelector(".notif").style.visibility = "visible";
-    document.querySelector(".notif").innerHTML=" 10 SECONDES AUTOCLICKER";
-    document.querySelector(".notif").style.fontSize="1.2rem";
-    
-  }
-  else {
-    document.querySelector(".notif").style.visibility = "hidden";
+  if (seconde > 30 && seconde < 40) {
+    bonuseconde = bonuseconde + 1;
 
+    document.querySelector(".notif").style.visibility = "visible";
+    document.querySelector(".notif").innerHTML = " 10 SECONDES Bonus  💯";
+
+    Autoclick.innerHTML =
+      " BONUS = " + "( " + clicks + "+" + bonuseconde + ")<br/>";
+
+    Autoclick.style.backgroundImage = "url('feteforaine1.gif')";
+    document.querySelector(".notif").style.fontSize = "1.2rem";
+    clicks = clicks + bonuseconde;
+  } else {
+    document.querySelector(".notif").style.visibility = "hidden";
+  }
+
+  if (minute == 1 && seconde == 10) {
+    alert(" BONUS 200 % ");
+   
+      hiddenconfetie.style.visibility = "hidden";
+      hiddenconfetie.disabled = false;
+      BonusHidden();
+      clicks = 500;
+  
   }
 
   if (minute < 10) {

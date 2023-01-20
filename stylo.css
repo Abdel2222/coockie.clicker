@@ -9,7 +9,9 @@
 }
 body {
   background: url("reve.gif") center/cover;
+  background-repeat: no-repeat;
   width: 100%;
+  height: 120vh;
 }
 h1 {
   font-size: 2rem;
@@ -25,16 +27,12 @@ h1 {
   padding: 20px;
   overflow: hidden;
   text-align: center;
-  
 }
-.score{
-  
+.score {
   justify-content: center;
   align-content: center;
 }
-#reset {
-  visibility: hidden;
-}
+
 #reset:hover {
   background: url("https://media.giphy.com/media/tvtrYrzZN1ZmBfT8Nl/giphy.gif")
     center/cover;
@@ -60,6 +58,7 @@ span {
   justify-content: center;
   align-items: center;
   background: url("c2.jpeg") center/cover;
+  b
   text-shadow: 5px 6px 18px black;
 }
 
@@ -141,11 +140,8 @@ h3 {
 .notif {
   border-radius: 5px;
   border: 5px 5px black;
-  background-color: beige;
-  background: url("https://media.giphy.com/media/LuTRLrm0jIZ3rKO2aN/giphy.gif")
-    center/cover;
 
-  width: 50%;
+  width: 70%;
   height: 100px;
   position: relative;
   top: 60px;
@@ -160,13 +156,13 @@ button {
 
 #autoclick {
   background: url("https://media.giphy.com/media/26tPeyjg3ucTueKnC/giphy.gif")
-    center/cover;
+    ;
   color: beige;
 }
 .notif {
   visibility: hidden;
   text-align: center;
-  width: 10%;
+  width: 50%;
 }
 
 @keyframes rotate {
@@ -180,6 +176,16 @@ button {
 }
 
 @media screen and (max-width: 500px) {
+  #score{
+    width:120%;
+    height:80%;
+    margin-bottom:80px;
+    padding:  80px;
+    font-size: 1.2rem;
+    margin-top: 10px;
+
+
+  }
   .space {
     display: flex;
     flex-direction: column;
@@ -188,18 +194,31 @@ button {
   }
   body {
     width: 100%;
-    height: 140vh;
+    height: 120vh;
+    overflow:hidden;
+    justify-content: center;
+    position :sticky;
   }
-  button {
-    height: 20%;
-    width: 90%;
-    padding: 50px;
+  .coockie-container{
+    height:50%;
+    width: 100%;
+
   }
+  .coockie{
+    font: size 1.2rem;
+  }
+  
   .space {
-    margin-top: 50px;
+    margin-top: 150px;
     height: 30%;
   }
-  .notif{
-    width:55%
+  .notif {
+    width: 25%;
+  }
+  button{
+    width: 70%;
+    text-align:center;
+    height: 75%;
+    
   }
 }
